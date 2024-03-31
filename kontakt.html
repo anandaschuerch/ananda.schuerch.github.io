@@ -1,0 +1,121 @@
+<!--Browser Information-->
+<!DOCTYPE html>
+<html lang="de">
+
+
+
+<!--Webpage Head-->
+<head>
+	<!--Webpage Information-->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MAR - die Mistelkunst</title>
+
+	<!--Insert Keywords-->
+
+	<!-- Link to CSS file -->
+	<link rel="stylesheet" type="text/css" href="style.css"></link>
+
+	<!-- Link to imported fonts-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+	<!-- Link to imported icons -->
+	<link rel="stylesheet" href="https://use.typekit.net/vay6ebw.css">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+
+    <!-- Connection to jQuery from Google Hosted Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Connection to your JavaScript-file -->
+    <script src="script.js"></script>
+
+    <!--Javascript in this html-->
+    <script>
+    $(document).ready(function() {
+        // Function to toggle navigation
+        $(".handle").click(function() {
+            $("nav").toggleClass("showing");
+            $(".handle i").toggleClass("bx-menu bx-x");
+            $(".header").toggleClass("nav-open");
+        });
+
+        // Function to scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Attach click event handler to the scroll up button
+        $('.scrollupbutton').click(function() {
+            scrollToTop();
+        });
+    });
+	</script>
+</head>
+
+
+
+<!--Webpage Body-->
+<body>
+<!--Overlay-->
+	<img class="sidebar-l" src="images\Seitenleiste.svg">
+	<img class="sidebar-r" src="images\Seitenleiste.svg">
+	<div class="border"></div>
+	<div class="cursor outer"></div>
+    <div class="cursor inner"></div>
+<!--Navigationbar-->
+	<header class="header">
+		<div class="headercontent">
+			<div class="headerleft">
+				<a href="übermich.html">Über mich</a>
+				<a href="galerie.html">Galerie</a>
+			</div>
+			<div class="headermiddle">
+				<a href="index.html"><img src="images/Logo.svg"></a>
+			 	<div class="handle">
+					<i class="bx bx-menu" id="menu-icon"></i>
+					<i class="bx bx-x" id="close-icon" style="display: none;"></i>
+				</div>
+			</div>
+			<div class="headerright">
+				<a href="https://www.instagram.com/diemistelkunst">
+					<i class="bx bxl-instagram"></i>
+				</a>
+			</div>
+		</div>
+	</header>
+	<nav>
+       	<ul>
+        	<li><a href="übermich.html">Über mich</a></li>
+        	<li><a href="galerie.html">Galerie</a></li>
+        	<a class="navsocial" href="https://www.instagram.com/diemistelkunst">
+        		<i class="bx bxl-instagram"></i>
+			</a>
+       	</ul>
+    </nav>
+
+
+
+<!--Content-->
+    <section>
+    </section>
+
+
+		
+<!--Webpage Footer-->
+	<footer>
+		<div class="footermiddle">
+			<p>MAR<br><br>diemistelkunst@gmail.com<br><br>Maria del Mar Martinez<br>Mühlebrücke 6<br>2502, Biel<br>CH</p><br><br>
+    		<a href="https://www.instagram.com/diemistelkunst">
+				<i class="bx bxl-instagram"></i>
+			</a>
+		</div>
+	</footer>
+	<button class="scrollupbutton"><i class="bx bx-chevron-up" onclick="scrollToTop()"></i></button>
+</body>
+<!--End of page-->
+</html>
