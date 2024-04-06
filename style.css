@@ -1,0 +1,402 @@
+/*! Reset Styles */
+    * {
+        cursor: none;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        }
+
+/*! Global Colors */
+    :root{
+        --main-color: #dbdbdb;
+        --white-color: #f5f5f5;
+        --gray-color: #82807f;
+        --black-color: #18191a;
+        --accent-color: #517a5e;
+        --accent-color2: #fcb519;
+    }
+
+/*! Global Z-Index */
+    :root{
+        --z-index-back: -100;
+        --z-index-background: -50;
+        --z-index-middle: 0;
+        --z-index-foreground: 50;
+        --z-index-front: 100;
+    }
+
+/*! Global overlay */
+    .sidebar-l, .sidebar-r {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: var(--z-index-front);
+        width: auto;
+        height: 33.3vh;
+        min-height: 250px;
+        pointer-events: none;
+    }
+
+    .sidebar-l {
+        left: 0;
+        margin-left: 5vw;
+    }
+
+    .sidebar-r {
+        right: 0;
+        margin-right: 5vw;
+    }
+
+    .border {
+        position: fixed;
+        z-index: var(--z-index-front);
+        border:  solid 2px;
+        border-color: var(--accent-color2);
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+/*! Global Cursor */
+    .touch-device .cursor {
+        display: none;
+    }
+
+    .cursor {
+        position: relative;
+        z-index: 1000;
+    }
+
+    .ring {
+        position: fixed;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s ease-out, height 0.2s ease-out, border 0.5s; /* Add transition effect */
+        box-sizing: border-box; /* Include border in element's total width and height */
+        border: 2px solid white; /* ring border color */
+        border-radius: 50%;
+        background-color: transparent;
+        width: 28px;
+        height: 28px;
+        pointer-events: none;
+    }
+
+    .ring.active {
+        width: 1px;
+        height: 1px;
+    }
+
+    .star{
+        position: fixed;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.2s ease-out; /* Add transition effect */
+        border-radius: 50%;
+        background-image: url('symbols/star_white.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+        pointer-events: none;
+    }
+
+    .star.active {
+        opacity: 0;
+    }
+
+    .ring.scroll {
+        width: 0px;
+        height: 0px;
+    }
+
+    .star.scroll {
+        opacity: 1;
+    }
+
+/* Global Pagelayout */
+    body {
+        display: block;
+        background-color: var(--white-color);
+        color: var(--black-color);
+    }
+
+    :root{
+        --max-width: 1920px;
+        --min-width: 375px;
+    }
+
+/* Global Textstyle */
+    header a {
+        color: var(--white-color);
+        font-style: normal;
+        font-style: uppercase;
+        font-weight: 300;
+        font-size: 12pt;
+        font-family: "halyard-display", serif;
+        font-optical-sizing: auto;
+        letter-spacing: 1px;
+        text-decoration: none;
+    }
+
+/* Container Navbar */
+@media(min-width: 1024px) {
+    /* Disable Mobile Navbar */
+    nav, .handle, .empty-space {
+        display: none;
+    }
+
+/* Header */
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--black-color);
+        min-width: var(--min-width);
+        height: 5vw;
+        min-height: 60px;
+        max-height: 100px;
+    }
+
+    .header-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 20px;
+        padding-left: 20px;
+        width: 100%;
+        max-width: var(--max-width);
+    }
+
+/* Headerleft */
+    .header-l {
+        display: flex;
+        justify-content: left;
+        width: 33.3vw;
+    }
+
+    .header-l a {
+        position: relative;
+        margin-right: 10px;
+    }
+
+/* Headermiddle */
+    .header-m {
+        display: flex;
+        justify-content: center;
+        width: 33.3vw;
+    }
+    
+    .header-m img {
+        margin-top: 3px;
+        width: 100px;
+        height: auto;
+    }
+
+/* Headerright */
+    .header-r {
+        display: flex;
+        justify-content: right;
+        width: 33.3vw;
+    }
+
+    .header-r i{
+        margin-top: 3px;
+        font-size: 20pt;
+    }
+}
+
+@media(max-width: 1023px) {
+
+/* Disable Wide Navbar */
+    .header-l, .header-r {
+        display: none;
+    }
+
+/* Create Empty Space */
+    .empty-space {
+        width: 100vw;
+        height: 15vw;
+        min-height: 60px;
+        max-height: 100px;
+    }
+
+/* Headermiddle */
+    .header-m {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 5vw;
+        padding-left: 5vw;
+        height: 15vw;
+        min-height: 60px;
+        max-height: 100px;
+    }
+
+    .header-m img{
+        width: 100px;
+    }
+
+    .header-m i{
+        margin-top: 3px;
+        color: var(--white-color);
+        font-size: 20pt;
+    }
+
+/* Header */
+    header {
+        position: fixed;
+        top: 0;
+        z-index: 150;
+        transition: background-color 0.3s ease;
+        border-bottom: solid 2px;
+        border-color: var(--accent-color2);
+        background-color: var(--black-color);
+        width: 100%;
+    }
+
+
+    header.nav-open{
+        border-color: transparent;
+        background-color: var(--white-color);
+    }
+
+    .handle {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        height: 50px;
+    }
+    
+    .handle i {
+        color: var(--white-color);
+    }
+
+    .nav-open .logo-white {
+        display: none;
+    }
+
+    .logo-black {
+        display: none;
+    }
+
+    .nav-open .logo-black {
+        display: flex;
+        margin-top: -3px;
+    }
+    
+    .nav-open .handle i{
+        color: var(--black-color);
+    }
+
+    header a{
+        display: block;
+        margin-bottom: 0px;
+    }
+
+/* Navbar */
+    nav {
+        display: none;
+        position: fixed;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--white-color);
+        width: 100%;
+        height: 100vh;
+    }
+
+    nav ul {
+        display: fixed;
+        justify-content: center;
+        list-style: none;
+        text-align: center;
+    }
+
+    nav.showing {
+        display: flex;
+        align-items: center;
+        z-index: var(--z-index-front);
+        height: 100%;
+        min-height: 350px;
+    }
+
+    nav.showing ul {
+        display:block;
+    }
+
+    nav ul a{
+        display: block;
+        position: relative;
+        padding: 20px;
+        color: var(--black-color);
+        font-style: normal;
+        font-weight: 300;
+        font-size: 32pt;
+        font-family: "halyard-display", serif;
+        font-optical-sizing: auto;
+        letter-spacing: 1px;
+        text-decoration: none;
+    }
+
+    nav ul li a:active{
+        font-weight: 400;
+    }
+
+    /* Navbar-links underline before*/
+    nav ul li a::before {
+        position: absolute; /* Position absolute to overlay over the link */
+        bottom: 0;
+        bottom: 0; /* Position at the bottom of the link */
+        left: 0;
+        transition: width 0.7s ease; /* Transition for width change */
+        background-color: transparent; /* Color of the underline */
+        width: 0; /* Initially set width to 0 */
+        height: 2px; /* Height of the underline */
+        content: ''; /* Empty content */
+    }
+    
+    /* Navbar-links underline after*/
+    nav ul li a:hover::before {
+        background-color: var(--black-color);
+        width: 100%; /* Increase width to 100% on hover */
+    }
+
+    .navsocial {
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 10vh;
+        font-size: 35pt;
+        color: var(--black-color);
+    }
+}
+
+
+
+
+/*! Container Scrollup */
+    .scrollupbutton {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        z-index: var(--z-index-middle);
+        border: transparent;
+        background-color: var(--black-color);
+        width: 100%;
+        color: var(--white-color);
+        font-size: 35pt;
+    }
+
+    .scrollupbutton:hover::before {
+        position: absolute;
+        z-index: var(--z-index-background);
+        background-color: var(--gray-color);
+        width: 100%;
+        height: 100%;
+        content: '';
+    }
+
+    .scrollupbutton i {
+        pointer-events: none;
+    }
+
+    @media(max-width: 1023px) {
