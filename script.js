@@ -1,5 +1,4 @@
-$(document).ready(function() {
-    
+$(document).ready(function() {    
     // Function to toggle navigation
     $(".handle").click(function() {
         $("nav").toggleClass("showing");
@@ -33,56 +32,113 @@ $(document).ready(function() {
         console.log('Touch is not supported');
     }
 
-    // Initialize cursor functionality when DOM is loaded
-    var ringCursor = document.querySelector('.ring');
-    var starCursor = document.querySelector('.star');
-    var mouseX = 0;
-    var mouseY = 0;
+    // Initialize custom cursor
+    const customCursor = new CustomCursor();
+    customCursor.init();
 
-    // Check if cursor position is stored in localStorage
-    if (localStorage.getItem('cursorX') !== null && localStorage.getItem('cursorY') !== null) {
-        mouseX = parseInt(localStorage.getItem('cursorX'));
-        mouseY = parseInt(localStorage.getItem('cursorY'));
-        ringCursor.style.left = mouseX + 'px';
-        ringCursor.style.top = mouseY + 'px';
-        starCursor.style.left = mouseX + 'px';
-        starCursor.style.top = mouseY + 'px';
+    // JavaScript to add/remove class when hovering over links
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            document.querySelector('.ring').classList.add('clickable');
+        });
+        link.addEventListener('mouseleave', function() {
+            document.querySelector('.ring').classList.remove('clickable');
+        });
+    });
+
+    // JavaScript to add/remove class when hovering over <i> elements
+    document.querySelectorAll('i').forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+            document.querySelector('.ring').classList.add('clickable');
+        });
+        icon.addEventListener('mouseleave', function() {
+            document.querySelector('.ring').classList.remove('clickable');
+        });
+    });
+
+    // JavaScript to add/remove class when hovering over buttons
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            // Add a class to the button or any other element you want to target
+            document.querySelector('.ring').classList.add('clickable');
+        });
+        button.addEventListener('mouseleave', function() {
+            // Remove the class when the mouse leaves
+            document.querySelector('.ring').classList.remove('clickable');
+        });
+    });
+});
+
+//! Cursor functionality
+class CustomCursor {
+    constructor() {
+        this.ringCursor = document.querySelector('.ring');
+        this.starCursor = document.querySelector('.star');
+        this.mouseX = 0;
+        this.mouseY = 0;
     }
 
-    document.addEventListener('mousemove', function(e) {
+    init() {
+        // Check if cursor position is stored in localStorage
+        if (localStorage.getItem('cursorX') !== null && localStorage.getItem('cursorY') !== null) {
+            this.mouseX = parseInt(localStorage.getItem('cursorX'));
+            this.mouseY = parseInt(localStorage.getItem('cursorY'));
+            this.ringCursor.style.left = this.mouseX + 'px';
+            this.ringCursor.style.top = this.mouseY + 'px';
+            this.starCursor.style.left = this.mouseX + 'px';
+            this.starCursor.style.top = this.mouseY + 'px';
+        }
+
+        // Add event listeners
+        document.addEventListener('mousemove', this.handleMouseMove.bind(this));
+        document.addEventListener('mousedown', this.handleMouseDown.bind(this));
+        document.addEventListener('mouseup', this.handleMouseUp.bind(this));
+        window.addEventListener('scroll', this.handleScroll.bind(this));
+    }
+
+    handleMouseMove(e) {
         var scrollX = window.scrollX || window.pageXOffset;
         var scrollY = window.scrollY || window.pageYOffset;
 
         // Calculate the new position based on the previous position and mouse movement
-        mouseX += (e.pageX - mouseX - scrollX) * 0.40;
-        mouseY += (e.pageY - mouseY - scrollY) * 0.40;
+        this.mouseX += (e.pageX - this.mouseX - scrollX) * 0.40;
+        this.mouseY += (e.pageY - this.mouseY - scrollY) * 0.40;
 
-        ringCursor.style.left = mouseX + 'px';
-        ringCursor.style.top = mouseY + 'px';
-        starCursor.style.left = mouseX + 'px';
-        starCursor.style.top = mouseY + 'px';
+        this.ringCursor.style.left = this.mouseX + 'px';
+        this.ringCursor.style.top = this.mouseY + 'px';
+        this.starCursor.style.left = this.mouseX + 'px';
+        this.starCursor.style.top = this.mouseY + 'px';
+
+        // Add a class to indicate mouse movement
+        this.ringCursor.classList.add('moving');
+        this.starCursor.classList.add('moving');
 
         // Store cursor position in localStorage
-        localStorage.setItem('cursorX', mouseX);
-        localStorage.setItem('cursorY', mouseY);
-    });
+        localStorage.setItem('cursorX', this.mouseX);
+        localStorage.setItem('cursorY', this.mouseY);
+    }
 
-    document.addEventListener('mousedown', function() {
-        starCursor.classList.add('active');
-        ringCursor.classList.add('active');
-    });
+    handleMouseDown() {
+        this.starCursor.classList.add('active');
+        this.ringCursor.classList.add('active');
+    }
 
-    document.addEventListener('mouseup', function() {
-        starCursor.classList.remove('active');
-        ringCursor.classList.remove('active');
-    });
+    handleMouseUp() {
+        this.starCursor.classList.remove('active');
+        this.ringCursor.classList.remove('active');
+    }
 
-    window.addEventListener('scroll', function() {
-        ringCursor.classList.add('scroll');
-        starCursor.classList.add('scroll');
-        setTimeout(function() {
-            ringCursor.classList.remove('scroll');
-            starCursor.classList.remove('scroll');
-        }, 1000); // Change the duration as needed
-    });
-});
+    handleScroll() {
+        this.ringCursor.classList.add('scroll');
+        this.starCursor.classList.add('scroll');
+        setTimeout(() => {
+            this.ringCursor.classList.remove('scroll');
+            this.starCursor.classList.remove('scroll');
+        }, 250); // Change the duration as needed
+    }
+
+    //! What is this for?
+    changeCursor(cursorType) {
+        document.body.style.cursor = cursorType;
+    }
+}
