@@ -1,0 +1,95 @@
+<!--Browser Information-->
+<!DOCTYPE html>
+<html lang="de">
+<!--Webpage Head-->
+<head>
+    <!--Webpage Information-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Page Title-->
+    <title>MAR - die Mistelkunst v3</title>
+    <!--Page Keywords-->
+    <meta name="keywords" content="Misteln, Maria del Mar Martinez, Mar, Mistelkunst">
+    <!-- Link to CSS file -->
+	<link rel="stylesheet" type="text/css" href="style.css"></link>
+    <!-- Link to imported fonts-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+	<!-- Link to imported icons -->
+	<link rel="stylesheet" href="https://use.typekit.net/vay6ebw.css">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <!-- Connection to jQuery from Google Hosted Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Connection to your JavaScript-file -->
+    <script src="script.js"></script>
+    <!--Javascript in this html-->
+</head>
+<!--Webpage Body-->
+<body>
+<!--Overlay-->
+<img class="sidebar-l" src="symbols/sidebar.svg">
+<img class="sidebar-r" src="symbols/sidebar.svg">
+<div class="border"></div>
+<div class="cursor ring"></div>
+<div class="cursor star"></div>
+<!--Navigationbar-->
+    <header class="header">
+        <div class="header-items">
+            <div class="header-l">
+                <!--! add class="active-page" to active page-->
+                <a class="active-page" href="portrait.html">Portrait</a>
+                <a href="gallery.html">Galerie</a>
+            </div>
+            <div class="header-m">
+                <a class="logo logo-white" href="index.html"><img src="symbols/logo_white.svg" alt="MAR"></a>
+                <a class="logo logo-black" href="index.html"><img src="symbols/logo_black.svg" alt="MAR"></a>
+                <div class="handle">
+					<i class="bx bx-menu" id="menu-icon"></i>
+					<i class="bx bx-x" id="close-icon" style="display: none;"></i>
+				</div>
+            </div>
+            <div class="header-r">
+                <a class="social" href="https://www.instagram.com/diemistelkunst"><i class="bx bxl-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <!--! add class="active-page" to active page-->
+            <li><a class="active-page" href="portrait.html">Portrait</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+        </ul>
+        <a class="navsocial" href="https://www.instagram.com/diemistelkunst"><i class="bx bxl-instagram"></i></a>
+    </nav>
+    <div class="empty-space">
+    </div>
+<!--Page Content-->
+    <section>
+        <br><br>PORTRAIT PAGE
+    </section>
+<!--Webpage Footer-->
+    <footer>
+        <div class="footer-items">
+            <p>© 2024 | MAR</p>
+            <div>
+                <p><img class="logo" src="symbols/logo_black.svg"><br><br>Maria del Mar Martinez<br>diemistelkunst@gmail.com<br><br></p>
+                <a class="social" href="https://www.instagram.com/diemistelkunst"><i class="bx bxl-instagram"></i></a>
+            </div>
+            <p>Design | ananda.schuerch</p>
+        </div>
+        <div class="footer-items-mobile">
+            <div class="footer-items-1">
+                <p><img class="logo" src="symbols/logo_black.svg"><br><br>Maria del Mar Martinez<br>diemistelkunst@gmail.com<br><br></p>
+                <a class="social" href="https://www.instagram.com/diemistelkunst"><i class="bx bxl-instagram"></i></a>
+            </div>
+            <div class="footer-items-2">
+                <p>Design | ananda.schuerch</p>
+                <p>© 2024 | MAR</p>
+            </div>
+        </div>
+    </footer>
+	<button class="scrollupbutton"><i class="bx bx-chevron-up" onclick="scrollToTop()"></i></button>
+</body>
+</html>
