@@ -15,11 +15,12 @@
 	<link rel="stylesheet" type="text/css" href="style.css"></link>
     <!-- Link to imported fonts-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect stylesheet" href="https://use.typekit.net/vay6ebw.css">
 	<!-- Link to imported icons -->
-	<link rel="stylesheet" href="https://use.typekit.net/vay6ebw.css">
-	<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+	<link rel="preconnect stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <!-- Connection to jQuery from Google Hosted Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Connection to your JavaScript-file -->
@@ -29,11 +30,11 @@
 <!--Webpage Body-->
 <body>
 <!--Overlay-->
-<img class="sidebar-l" src="symbols/sidebar.svg">
-<img class="sidebar-r" src="symbols/sidebar.svg">
-<div class="border"></div>
-<div class="cursor ring"></div>
-<div class="cursor star"></div>
+    <img class="sidebar-l" src="symbols/sidebar.svg">
+    <img class="sidebar-r" src="symbols/sidebar.svg">
+    <div class="border"></div>
+    <div class="cursor ring"></div>
+    <div class="cursor star"></div>
 <!--Navigationbar-->
     <header class="header">
         <div class="header-items">
@@ -41,6 +42,7 @@
                 <!--! add class="active-page" to active page-->
                 <a href="portrait.html">Portrait</a>
                 <a href="gallery.html">Galerie</a>
+                <a href="contact.html">Kontakt</a>
             </div>
             <div class="header-m">
                 <a class="logo logo-white" href="index.html"><img src="symbols/logo_white.svg" alt="MAR"></a>
@@ -60,33 +62,105 @@
             <!--! add class="active-page" to active page-->
             <li><a href="portrait.html">Portrait</a></li>
             <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
         </ul>
         <a class="navsocial" href="https://www.instagram.com/diemistelkunst"><i class="bx bxl-instagram"></i></a>
     </nav>
     <div class="empty-space">
     </div>
 <!--Page Content-->
-    <section>
-        <br><br>HOME PAGE
+    <section class="start-container">
+        <div>
+            <h1>WILLKOMMEN AUF<br>MARART.CH</h1>
+            <!--<h2 class="undertitle">Willkommen auf MARART.ch. Hier finden sie alles zu mir und meiner Kunst.</h2>-->
+            <a href="portrait.html"><button class="start-button">Mehr erfahren</button></a>
+        </div>
+    </section>
+    <section class="info-container">
+        <div>
+            <h2 class="info-title">DIENSTLEISTUNGEN</h2>
+            <br><br><br><br>
+            <div class="info-text">
+                <div>
+                    <h3>Material</h3>
+                    <br>
+                    <br>
+                    <p>Hier steht, mit welchem Material ich mich beschäftige und arbeite. Welche Vorteile für den Kunden und wie edel es ist.</p>               
+                    <button>Button 1</button>
+                </div>
+                <div class="info-text2">
+                    <h3>Rahmen</h3>
+                    <br>
+                    <br>
+                    <p>Hier steht, mit welchem Material ich mich beschäftige und arbeite. Welche Vorteile für den Kunden und wie edel es ist.</p>
+                    <button>Button 2</button>
+                </div>
+                <div>
+                    <h3>Wunsch</h3>
+                    <br>
+                    <br>
+                    <p>Hier steht, mit welchem Material ich mich beschäftige und arbeite. Welche Vorteile für den Kunden und wie edel es ist.</p>
+                    <button>Button 3</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="brand-img"></div>
+    <section class="brand-container">
+        <div class="brand-container-center">
+            <div class="brand-textcontainer">
+                <div class="brand-text">
+                    <h2>Mehr über unsere Marke</h2>
+                    <br><br><br><br>
+                    <p>Erzähle den Leuten mehr über dich, woher du kommst, wie du arbeitest oder was dich inspiriert. Lass deiner Kreativität freien Lauf. Du kannst das. Die Art und Weise, wie du deine Geschichte online vermittelst, kann einen gewaltigen Unterschied ausmachen.
+                    <br>
+                    Mach dir keine Sorgen, ob du professionell klingst oder nicht. Klinge einfach wie du selbst. Es gibt über 1,5 Milliarden Websites, aber es ist deine Story, die dich von allen anderen unterscheiden wird.
+                    </p>
+                </div>
+            </div>
+            <div class="brand-arraycontainercenter">
+                <div class="brand-arraycontainer">
+                    <div class="brand-array">
+                        <div class="brand-img1"></div>
+                        <div class="brand-imgtext">
+                            <h3>TITEL 1</h3>
+                            <br><br><br><br><br>
+                            <p>Erzähle den Leuten mehr über dich, woher du kommst, wie du arbeitest oder was dich inspiriert. Lass deiner Kreativität freien Lauf.<br><br> Du kannst das. Die Art und Weise, wie du deine Geschichte online vermittelst, <br><br>kann einen gewaltigen Unterschied ausmachen.</p>
+                        </div>
+                    </div>
+                    <div class="brand-array-middle">
+                        <div class="brand-img2"></div>
+                        <div class="brand-imgtext">
+                            <h3>TITEL 2</h3>
+                            <br><br><br><br><br>
+                            <p>Erzähle den Leuten mehr über dich, woher du kommst, wie du arbeitest oder was dich inspiriert. Lass deiner Kreativität freien Lauf. Du kannst das. Die Art und Weise, wie du deine Geschichte online vermittelst, kann einen gewaltigen Unterschied ausmachen.</p>                
+                        </div>
+                    </div>
+                    <div class="brand-array">
+                        <div class="brand-img3"></div>
+                        <div class="brand-imgtext">
+                            <h3>TITEL 3</h3>
+                            <br><br><br><br><br>
+                            <p>Erzähle den Leuten mehr über dich, woher du kommst, wie du arbeitest oder was dich inspiriert. Lass deiner Kreativität freien Lauf. Du kannst das. Die Art und Weise, wie du deine Geschichte online vermittelst, kann einen gewaltigen Unterschied ausmachen.</p>                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 <!--Webpage Footer-->
     <footer>
         <div class="footer-items">
-            <p>© 2024 | MAR</p>
-            <div>
-                <p><img class="logo" src="symbols/logo_black.svg"><br><br>Maria del Mar Martinez<br>diemistelkunst@gmail.com<br><br></p>
-                <a class="social" href="https://www.instagram.com/diemistelkunst"><i class="bx bxl-instagram"></i></a>
-            </div>
-            <p>Design | ananda.schuerch</p>
-        </div>
-        <div class="footer-items-mobile">
             <div class="footer-items-1">
                 <p><img class="logo" src="symbols/logo_black.svg"><br><br>Maria del Mar Martinez<br>diemistelkunst@gmail.com<br><br></p>
                 <a class="social" href="https://www.instagram.com/diemistelkunst"><i class="bx bxl-instagram"></i></a>
             </div>
             <div class="footer-items-2">
-                <p>Design | ananda.schuerch</p>
-                <p>© 2024 | MAR</p>
+                <div>
+                    <p>Design | ananda.schuerch</p>
+                    <p>© 2024 | MAR</p>
+                </div>
             </div>
         </div>
     </footer>
