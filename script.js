@@ -67,6 +67,72 @@ $(document).ready(function() {
             document.querySelector('.ring').classList.remove('clickable');
         });
     });
+
+    // Slider Dragging
+    let isDragging = false;
+    let startPosition = 0;
+    let currentTranslate = 0;
+
+    const slider = document.querySelector('.slider');
+
+    // Slider Dragging for Mouse Devices
+    slider.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startPosition = e.pageX - slider.offsetLeft;
+        currentTranslate = getTranslateX();
+        slider.style.transition = 'none'; // Deaktiviere die Transition beim Ziehen
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const currentPosition = e.pageX - slider.offsetLeft;
+        const move = currentPosition - startPosition;
+        slider.style.transform = `translateX(${currentTranslate + move}px)`;
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDragging = false;
+        slider.style.transition = ''; // Setze die Transition wieder ein
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDragging = false;
+        slider.style.transition = ''; // Setze die Transition wieder ein
+    });
+
+    // Slider Dragging for Touch Devices
+    slider.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        isDragging = true;
+        startPosition = touch.pageX - slider.offsetLeft;
+        currentTranslate = getTranslateX();
+        slider.style.transition = 'none';
+    });
+
+    slider.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const touch = e.touches[0];
+        const currentPosition = touch.pageX - slider.offsetLeft;
+        const move = currentPosition - startPosition;
+        slider.style.transform = `translateX(${currentTranslate + move}px)`;
+    });
+
+    slider.addEventListener('touchend', () => {
+        isDragging = false;
+        slider.style.transition = '';
+    });
+
+    slider.addEventListener('touchcancel', () => {
+        isDragging = false;
+        slider.style.transition = '';
+    });
+
+    function getTranslateX() {
+        const style = window.getComputedStyle(slider);
+        const matrix = new DOMMatrixReadOnly(style.transform);
+        return matrix.m41;
+    }
+
 });
 
 //! Cursor functionality
@@ -94,6 +160,11 @@ class CustomCursor {
         document.addEventListener('mousedown', this.handleMouseDown.bind(this));
         document.addEventListener('mouseup', this.handleMouseUp.bind(this));
         window.addEventListener('scroll', this.handleScroll.bind(this));
+
+        // Touch events
+        document.addEventListener('touchstart', this.handleTouchStart.bind(this));
+        document.addEventListener('touchmove', this.handleTouchMove.bind(this));
+        document.addEventListener('touchend', this.handleTouchEnd.bind(this));
     }
 
     handleMouseMove(e) {
@@ -134,7 +205,28 @@ class CustomCursor {
         setTimeout(() => {
             this.ringCursor.classList.remove('scroll');
             this.starCursor.classList.remove('scroll');
-        }, 250); // Change the duration as needed
+        }, 500); // Change the duration as needed
+    }
+
+    // Touch event handlers
+    handleTouchStart(e) {
+        const touch = e.touches[0];
+        this.mouseX = touch.pageX;
+        this.mouseY = touch.pageY;
+    }
+
+    handleTouchMove(e) {
+        const touch = e.touches[0];
+        this.mouseX = touch.pageX;
+        this.mouseY = touch.pageY;
+        this.ringCursor.style.left = this.mouseX + 'px';
+        this.ringCursor.style.top = this.mouseY + 'px';
+        this.starCursor.style.left = this.mouseX + 'px';
+        this.starCursor.style.top = this.mouseY + 'px';
+    }
+
+    handleTouchEnd() {
+        // No specific action needed on touch end
     }
 
     //! What is this for?
